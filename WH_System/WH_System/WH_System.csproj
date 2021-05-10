@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{378E6AC6-5682-4B08-BC03-C4534D6EBB21}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WH_System</RootNamespace>
+    <AssemblyName>WH_System</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Customer.cs">
+      <DependentUpon>WareHouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer1.Designer.cs">
+      <DependentUpon>Customer1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>WareHouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee1.Designer.cs">
+      <DependentUpon>Employee1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export1.Designer.cs">
+      <DependentUpon>Export1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export_Table.cs">
+      <DependentUpon>WareHouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report2.Designer.cs">
+      <DependentUpon>Report2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report3.Designer.cs">
+      <DependentUpon>Report3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report4.Designer.cs">
+      <DependentUpon>Report4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report5.Designer.cs">
+      <DependentUpon>Report5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report1.Designer.cs">
+      <DependentUpon>Report1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Import Preview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import Preview.Designer.cs">
+      <DependentUpon>Import Preview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export Preview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export Preview.Designer.cs">
+      <DependentUpon>Export Preview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Import1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Import1.Designer.cs">
+      <DependentUpon>Import1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Import_Table.cs">
+      <DependentUpon>WareHouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>WareHouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product1.Designer.cs">
+      <DependentUpon>Product1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Supplier.cs">
+      <DependentUpon>WareHouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supplier1.Designer.cs">
+      <DependentUpon>Supplier1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>WareHouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction1.Designer.cs">
+      <DependentUpon>Transaction1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse.cs">
+      <DependentUpon>WareHouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warehouse1.Designer.cs">
+      <DependentUpon>Warehouse1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WareHouseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WareHouseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WareHouseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WareHouseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WareHouseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WareHouseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Werehouse_Product.cs">
+      <DependentUpon>WareHouseModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Customer1.resx">
+      <DependentUpon>Customer1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee1.resx">
+      <DependentUpon>Employee1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export1.resx">
+      <DependentUpon>Export1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export Preview.resx">
+      <DependentUpon>Export Preview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report2.resx">
+      <DependentUpon>Report2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.resx">
+      <DependentUpon>Report1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import Preview.resx">
+      <DependentUpon>Import Preview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Import1.resx">
+      <DependentUpon>Import1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product1.resx">
+      <DependentUpon>Product1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report3.resx">
+      <DependentUpon>Report3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report4.resx">
+      <DependentUpon>Report4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report5.resx">
+      <DependentUpon>Report5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supplier1.resx">
+      <DependentUpon>Supplier1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction1.resx">
+      <DependentUpon>Transaction1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse1.resx">
+      <DependentUpon>Warehouse1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="WareHouseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WareHouseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="WareHouseModel.edmx.diagram">
+      <DependentUpon>WareHouseModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WareHouseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WareHouseModel.edmx</DependentUpon>
+      <LastGenOutput>WareHouseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="WareHouseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WareHouseModel.edmx</DependentUpon>
+      <LastGenOutput>WareHouseModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

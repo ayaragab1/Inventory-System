@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WareHouseSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Customer_ID" />
+    </Key>
+    <Property Name="Customer_ID" Type="int" Nullable="false" />
+    <Property Name="Customer_Name" Type="nchar" MaxLength="25" />
+    <Property Name="Customer_Phone" Type="int" />
+    <Property Name="Customer_Mobile" Type="int" />
+    <Property Name="Customer_Fax" Type="nchar" MaxLength="25" />
+    <Property Name="Customer_Email" Type="nchar" MaxLength="25" />
+    <Property Name="Customer_Website" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Emp_ID" />
+    </Key>
+    <Property Name="Emp_ID" Type="int" Nullable="false" />
+    <Property Name="Emp_Name" Type="nchar" MaxLength="25" />
+    <Property Name="Emp_Mail" Type="nchar" MaxLength="25" />
+    <Property Name="Emp_Address" Type="nchar" MaxLength="25" />
+    <Property Name="Emp_Phone" Type="int" />
+  </EntityType>
+  <EntityType Name="Export_Table">
+    <Key>
+      <PropertyRef Name="Emp_ID" />
+      <PropertyRef Name="Customer_ID" />
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Emp_ID" Type="int" Nullable="false" />
+    <Property Name="Customer_ID" Type="int" Nullable="false" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Export_Number" Type="int" />
+    <Property Name="Export_Date" Type="date" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Supplier_Name" Type="nchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Import_Table">
+    <Key>
+      <PropertyRef Name="Emp_ID" />
+      <PropertyRef Name="Supplier_ID" />
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Emp_ID" Type="int" Nullable="false" />
+    <Property Name="Supplier_ID" Type="int" Nullable="false" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Import_Number" Type="int" />
+    <Property Name="Import_Date" Type="date" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Product_Name" Type="nchar" MaxLength="25" />
+    <Property Name="Measuring_Unit" Type="nchar" MaxLength="25" />
+    <Property Name="Production_Date" Type="date" />
+    <Property Name="Expiry_Date" Type="date" />
+    <Property Name="Total_Quantity" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Entry_Date" Type="date" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="Supplier_ID" />
+    </Key>
+    <Property Name="Supplier_ID" Type="int" Nullable="false" />
+    <Property Name="Supplier_Name" Type="nchar" MaxLength="25" />
+    <Property Name="Supplier_Phone" Type="int" />
+    <Property Name="Supplier_Mobile" Type="int" />
+    <Property Name="Supplier_Fax" Type="nchar" MaxLength="25" />
+    <Property Name="Supplier_Email" Type="nchar" MaxLength="25" />
+    <Property Name="Supplier_WebSite" Type="nchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="WH_ID" />
+    </Key>
+    <Property Name="WH_ID" Type="int" Nullable="false" />
+    <Property Name="WH_Name" Type="nchar" MaxLength="25" />
+    <Property Name="WH_Location" Type="nchar" MaxLength="25" />
+    <Property Name="EmpResponsible_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Werehouse_Product">
+    <Key>
+      <PropertyRef Name="WH_ID" />
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="WH_ID" Type="int" Nullable="false" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Transfare_from" Type="int" />
+    <Property Name="Transfare_to" Type="int" />
+    <Property Name="Transfare_Date" Type="date" />
+    <Property Name="Quantity_Transfared" Type="int" />
+  </EntityType>
+  <Association Name="FK_Export_Table_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="Export_Table" Type="Self.Export_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Customer_ID" />
+      </Principal>
+      <Dependent Role="Export_Table">
+        <PropertyRef Name="Customer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Export_Table_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Export_Table" Type="Self.Export_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="Export_Table">
+        <PropertyRef Name="Emp_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Export_Table_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Export_Table" Type="Self.Export_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Export_Table">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Import_Table_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Import_Table" Type="Self.Import_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="Import_Table">
+        <PropertyRef Name="Emp_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Import_Table_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Import_Table" Type="Self.Import_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Import_Table">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Import_Table_Suppliers">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+    <End Role="Import_Table" Type="Self.Import_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="Supplier_ID" />
+      </Principal>
+      <Dependent Role="Import_Table">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Werehouse_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Emp_ID" />
+      </Principal>
+      <Dependent Role="Warehouse">
+        <PropertyRef Name="EmpResponsible_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Werehouse_Product_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Werehouse_Product" Type="Self.Werehouse_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="Werehouse_Product">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Werehouse_Product_Warehouse">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+    <End Role="Werehouse_Product" Type="Self.Werehouse_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="WH_ID" />
+      </Principal>
+      <Dependent Role="Werehouse_Product">
+        <PropertyRef Name="WH_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WareHouseSystemModelStoreContainer">
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Export_Table" EntityType="Self.Export_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Import_Table" EntityType="Self.Import_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Werehouse_Product" EntityType="Self.Werehouse_Product" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Export_Table_Customers" Association="Self.FK_Export_Table_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Export_Table" EntitySet="Export_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Export_Table_Employee" Association="Self.FK_Export_Table_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Export_Table" EntitySet="Export_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Export_Table_Products" Association="Self.FK_Export_Table_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Export_Table" EntitySet="Export_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Import_Table_Employee" Association="Self.FK_Import_Table_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Import_Table" EntitySet="Import_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Import_Table_Products" Association="Self.FK_Import_Table_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Import_Table" EntitySet="Import_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Import_Table_Suppliers" Association="Self.FK_Import_Table_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Import_Table" EntitySet="Import_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Werehouse_Employee" Association="Self.FK_Werehouse_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Warehouse" EntitySet="Warehouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Werehouse_Product_Products" Association="Self.FK_Werehouse_Product_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Werehouse_Product" EntitySet="Werehouse_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Werehouse_Product_Warehouse" Association="Self.FK_Werehouse_Product_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Werehouse_Product" EntitySet="Werehouse_Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
